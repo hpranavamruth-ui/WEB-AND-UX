@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My First Webpage</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f8;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #0078ff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+nav a:hover {
+    color: #00bfff;
+}
+main {
+    padding: 20px;
+    text-align: center;
+}
+section {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+footer {
+    background-color: #0078ff;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+button {
+    background-color: #0078ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #005ecb;
+}
+/* Blink animation */
+@keyframes blink {
+    0%, 100% { background-color: white; }
+    50% { background-color: #ffe066; }
+}
+.blink {
+    animation: blink 0.6s ease;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to My Webpage</h1>
+    <p>Created using HTML, CSS, and JavaScript</p>
+</header>
+
+<nav>
+    <a href="#home" onclick="blinkSection('home')">Home</a>
+    <a href="#about" onclick="blinkSection('about')">About</a>
+    <a href="#contact" onclick="blinkSection('contact')">Contact</a>
+</nav>
+
+<main>
+    <section id="home">
+        <h2>Home</h2>
+        <p>This is the home section of the page.</p>
+        <button id="greetBtn">Click for Greeting</button>
+    </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>I am learning web development using HTML, CSS, and JavaScript. This is my first webpage!</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>You can reach me at <strong>pranav@gmail.com</strong></p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; <span id="year"></span> My First Website | All Rights Reserved</p>
+</footer>
+
+<script>
+// Greeting button function
+document.getElementById("greetBtn").addEventListener("click", function() {
+    alert("Hello! 👋 Thanks for visiting my webpage!");
+});
+
+// Auto-update footer year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Blink function for sections
+function blinkSection(id) {
+    const section = document.getElementById(id);
+    section.classList.add("blink");
+    setTimeout(() => section.classList.remove("blink"), 600);
+}
+</script>
+
+</body>
+</html>
